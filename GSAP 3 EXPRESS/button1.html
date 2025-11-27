@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=PT+Sans+Narrow:wght@700&family=Raleway:wght@900&display=swap");
+* {
+  position: relative;
+}
+body {
+  color: white;
+  font-family: sans-serif;
+  background: rgb(34, 32, 32);
+  background: radial-gradient(
+    circle,
+    rgba(34, 32, 32, 1) 0%,
+    rgba(0, 0, 0, 1) 100%
+  );
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  margin: 50px;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.dot {
+  height: 20px;
+  min-width: 20px;
+  background-color: #333;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.text {
+  color: #777;
+  font-family: Raleway;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin: 4px;
+  font-size: 40px;
+  white-space: nowrap;
+}
+
+    </style>
+</head>
+<body>
+    <div class="item">
+  <div class="dot"></div>
+  <div class="text">home</div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+<script>
+    const item = document.querySelector(".item");
+gsap.defaults({ duration: 0.3 });
+const tl = gsap
+  .timeline({ paused: true })
+  .to(".text", { color: "white", x: 10 })
+  .to(".dot", { backgroundColor: "#F93", scale: 1.5 }, 0);
+
+item.addEventListener("mouseenter", () => tl.play());
+item.addEventListener("mouseleave", () => tl.reverse());
+
+</script>
+</body>
+</html>

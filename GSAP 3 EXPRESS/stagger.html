@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img src="./star.png" alt="">
+    <img src="./star.png" alt="">
+    <img src="./star.png" alt="">
+    <img src="./star.png" alt="">
+    <img src="./star.png" alt="">
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+    <script>
+        // gsap.to('img', {y : 100, stagger: -.2})
+        gsap.to('img', {y : 100 , stagger: {
+            // each: .2,
+            amount: .4 , 
+            // from: "end"
+            // from: "center"
+            from: "edges"
+
+            //  amount: 1
+        }})
+    </script>
+</body>
+</html>
