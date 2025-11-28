@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        html, body {
+  width:100%;
+  height:100%;
+  font-family:Kanit;
+  color:white;
+  margin:0;
+  font-size:19px;
+}
+
+body {
+  display:flex;
+  justify-content:center;
+  background:#1d1d1d;
+  overflow:hidden;
+  align-items:center;
+  flex-direction:column;
+}
+
+.wrapper {
+  height:15%;
+  display:flex;
+  align-items:center;
+  
+}
+
+.perspective {
+  perspective:400px;
+}
+h2{
+  font-size:1.6em;
+  font-weight:400;
+  margin-bottom:0;
+}
+
+h3{
+  font-size:1.1em;
+  font-weight:300;
+  margin-top:0;
+  margin-bottom:0;
+  color:#ccc;
+}
+
+.box {
+  width:8vw;
+  height:8vw;
+  margin:1vw;
+  border-radius:2vw;
+  background:#f69;
+}
+
+
+
+
+
+body {
+  overflow:hidden;
+  background-image:linear-gradient(12deg, rgba(193, 193, 193,0.05) 0%, rgba(193, 193, 193,0.05) 2%,rgba(129, 129, 129,0.05) 2%, rgba(129, 129, 129,0.05) 27%,rgba(185, 185, 185,0.05) 27%, rgba(185, 185, 185,0.05) 66%,rgba(83, 83, 83,0.05) 66%, rgba(83, 83, 83,0.05) 100%),linear-gradient(321deg, rgba(240, 240, 240,0.05) 0%, rgba(240, 240, 240,0.05) 13%,rgba(231, 231, 231,0.05) 13%, rgba(231, 231, 231,0.05) 34%,rgba(139, 139, 139,0.05) 34%, rgba(139, 139, 139,0.05) 71%,rgba(112, 112, 112,0.05) 71%, rgba(112, 112, 112,0.05) 100%),linear-gradient(236deg, rgba(189, 189, 189,0.05) 0%, rgba(189, 189, 189,0.05) 47%,rgba(138, 138, 138,0.05) 47%, rgba(138, 138, 138,0.05) 58%,rgba(108, 108, 108,0.05) 58%, rgba(108, 108, 108,0.05) 85%,rgba(143, 143, 143,0.05) 85%, rgba(143, 143, 143,0.05) 100%),linear-gradient(96deg, rgba(53, 53, 53,0.05) 0%, rgba(53, 53, 53,0.05) 53%,rgba(44, 44, 44,0.05) 53%, rgba(44, 44, 44,0.05) 82%,rgba(77, 77, 77,0.05) 82%, rgba(77, 77, 77,0.05) 98%,rgba(8, 8, 8,0.05) 98%, rgba(8, 8, 8,0.05) 100%),linear-gradient(334deg, hsl(247,0%,2%),hsl(247,0%,2%))
+}
+
+    </style>
+  </head>
+  <body>
+    <link
+      href="https://fonts.googleapis.com/css?family=Kanit:300,400,600&display=swap"
+      rel="stylesheet"
+    />
+    <h2>perspective on .wrapper</h2>
+    <h3>each box shares the vanishing point of it's parent</h3>
+    <div class="wrapper perspective">
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+    </div>
+
+    <hr />
+    <br />
+    <h2>transformPerspective on each box</h2>
+    <h3>each box has it's own vanishing point</h3>
+    <div class="wrapper noPerspective">
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+    <script>
+        gsap.set('.noPerspective .box', {transformPerspective: '200'})
+        
+        let animation = gsap.timeline()
+     
+        animation.to(".box", {
+            rotationY : 360,
+            duration: 8,
+            ease: 'none',
+            transformOrigin: '50% 50%'
+        })
+
+    </script>
+  </body>
+</html>

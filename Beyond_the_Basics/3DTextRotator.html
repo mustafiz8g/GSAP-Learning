@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body, html{
+            font-family: sans-serif;
+            background-color: #ffcc33;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+            margin: 0;
+
+        }
+        .demo{
+            perspective: 400px;
+            visibility: hidden;
+            height: 100%;
+        }
+        .demo div{
+            /* background: white; */
+            position: absolute;
+            display: inline-block;
+            left: 50%;
+            top: 50%;
+            font-weight: 800;
+            font-size: 60px;
+            color: #1c7017;
+            transform: translate(-50%, -50%);
+            white-space: nowrap;
+        }
+    </style>
+</head>
+<body>
+    <div class="demo">
+        <div>Mustrafizur Rahman</div>
+        <div>I love you so much</div>
+        <div>I can't wait to see you</div>
+        <div>I miss you</div>
+    </div>
+    <div class="footer"></div>
+        <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+
+        <script>
+        let animation = gsap.timeline({repeat: -1});
+        let stagger = 1;
+        function init(){
+            gsap.set(".demo", {autoAlpha: 1})
+            gsap.set(".demo div", {transformOrigin: "50% 50% -50"})
+            animation.from(".demo div", {rotationX : -90,  opacity: 0, stagger: stagger})
+                      .to(".demo div", {
+                        rotationX : 90, opacity: 0, stagger: stagger
+                      } , stagger)
+        }
+
+        window.addEventListener('load' , init)
+        </script>
+</body>
+</html>
